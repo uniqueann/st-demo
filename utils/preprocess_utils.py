@@ -2,6 +2,7 @@ import jieba
 import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('wordnet')
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
