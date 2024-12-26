@@ -18,8 +18,10 @@ st.write(models)
 
 retrieve_model_input = st.text_input('请输入要检索模型id')
 if st.button('确定检索模型'):
-    st.write('要检索模型id: ' + retrieve_model_input)
-    st.write(openai.Model.retrieve(retrieve_model_input))
+    if retrieve_model_input:
+        st.write(openai.Model.retrieve(retrieve_model_input))
+    else:
+        st.warning('请输入检索模型id')
 
 radio_selection = st.sidebar.radio("Select a radio", ["完成","聊天", "编辑", "图像", "嵌入", "音频"])
 
