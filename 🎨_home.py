@@ -9,7 +9,8 @@ load_dotenv('.env')
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 data = openai.Model.list().data
-models =[ x["id"]  for x in data if x.owned_by=="openai"]
+models =[ x["id"]  for x in data]
+#  if x.owned_by=="openai"
 
 st.write(models)
 # base_engines = ['ada','babbage','curie','davinci']
