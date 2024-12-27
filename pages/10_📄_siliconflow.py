@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 import datetime
 import requests
+import json
 
 # 加载环境变量
 load_dotenv()
@@ -209,7 +210,7 @@ with tabModels:
     url = base_url + "/models"
     headers = {"Authorization": "Bearer "+openai.api_key}
     response = requests.request("GET", url, headers=headers)
-    data = response.text.list().data
+    data = json.loads(response.text).data
     st.write(data)
     models = [x["id"] for x in data]
     st.write(models)
