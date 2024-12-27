@@ -34,7 +34,7 @@ with st.sidebar:
     st.title("天气预报")
     
     # 当前温度
-    st.header("龙岗")
+    st.title("龙岗")
     st.title("22°")
     st.text("最低 13° 最高 19°")
     
@@ -47,18 +47,12 @@ with st.sidebar:
     
     df = pd.DataFrame(weather_data)
     
-    # 为每一天创建一个天气信息行
-    for index, row in df.iterrows():
-        #st.write("---")
-        cols = st.columns([1, 1, 2])
-        with cols[0]:
-            st.write(row['日期'])
-        with cols[1]:
-            # 根据天气显示对应的emoji
-            weather_emoji = "☀️" if row['天气'] == '晴' else "☁️"
-            st.write(weather_emoji)
-        with cols[2]:
-            st.write(row['温度'])
+    cols = st.columns(6)
+    for i in range(6):
+        with cols[i]:
+            weather_emoji = "☀️" if df['天气'][i] == '晴' else "☁️"
+            st.metric(df['日期'][i], df['天气'][i],df['温度'][i])
+    
 
 # 定义函数，使用OpenAI API获取回答
 def get_answer(prompt,temp,max_tokens):
