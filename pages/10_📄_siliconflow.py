@@ -70,24 +70,32 @@ def display_chat():
         border-bottom-left-radius: 5px;
     }
 
-    /* 输入框固定在底部 */
-    .stChatInput {
+    /* 输入框容器 */
+    .input-wrapper {
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
         z-index: 1000;
+        display: flex;
+        justify-content: center;
         padding: 10px;
         background-color: white;
         box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
     }
 
     /* 输入框样式 */
-    .stChatInput > div > div > input {
+    .input-wrapper .stChatInput {
+        max-width: 800px; /* 限制最大宽度 */
+        width: 100%;
+    }
+
+    .input-wrapper .stChatInput > div > div > input {
         border: 1px solid #e0e0e0;
         border-radius: 20px;
         padding: 10px 15px;
         background-color: #f5f5f5;
+        width: 100%;
     }
 
     /* 消息包装器 */
@@ -143,6 +151,9 @@ def display_chat():
     st.markdown('</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
+    # 输入框容器
+    st.markdown('<div class="input-wrapper">', unsafe_allow_html=True)
+    
     # 输入框
     if prompt := st.chat_input("输入你的消息", key="chat_input"):
         # 添加用户消息
@@ -162,6 +173,8 @@ def display_chat():
         
         # 重新运行
         st.rerun()
+
+    st.markdown('</div>', unsafe_allow_html=True)
 
     # 自动滚动脚本
     st.markdown("""
