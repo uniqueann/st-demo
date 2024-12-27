@@ -49,7 +49,7 @@ with st.sidebar:
     
     # 为每一天创建一个天气信息行
     for index, row in df.iterrows():
-        st.write("---")
+        #st.write("---")
         cols = st.columns([1, 1, 2])
         with cols[0]:
             st.write(row['日期'])
