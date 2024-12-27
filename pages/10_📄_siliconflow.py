@@ -15,9 +15,14 @@ def main():
     st.write(tab1)
     
     with tab1:
-        st.header(tab1)
+        st.header('文本生成')
+        st.write(openai.api_key)
     with tab2:
-        st.header(tab2)
+        st.header('图像生成')
+    with tab3:
+        st.header('视频生成')
+    with tab4:
+        st.header('语音生成')
 
 if __name__ == "__main__":
     main()
