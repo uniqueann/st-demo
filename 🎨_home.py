@@ -3,7 +3,7 @@ import openai
 import os
 from dotenv import load_dotenv
 from utils.preprocess_utils import *
-import pd from pandas
+import pandas as pd
 
 
 st.subheader('当前Streamlit版本：'+st.__version__)  # 查看当前版本
