@@ -207,7 +207,7 @@ with tab4:
 with tabModels:
     st.header('所有模型')
     url = base_url + "/models"
-    headers = {"Authorization": "Bearer "+url}
+    headers = {"Authorization": "Bearer "+openai.api_key}
     response = requests.request("GET", url, headers=headers)
     data = response.text
     st.write(data)
