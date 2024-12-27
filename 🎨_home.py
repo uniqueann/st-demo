@@ -51,7 +51,7 @@ with st.sidebar:
     for i in range(6):
         with cols[i]:
             weather_emoji = "☀️" if df['天气'][i] == '晴' else "☁️"
-            st.metric(df['日期'][i], df['天气'][i],df['温度'][i])
+            st.metric(df['日期'][i],df['温度'][i], weather_emoji)
     
 
 # 定义函数，使用OpenAI API获取回答
