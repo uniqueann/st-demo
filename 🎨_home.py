@@ -4,6 +4,8 @@ import os
 from dotenv import load_dotenv
 from utils.preprocess_utils import *
 
+st.__version__  # 查看当前版本
+
 load_dotenv('.env')
 # 设置OpenAI API密钥
 openai.api_key = os.getenv('OPENAI_API_KEY')
