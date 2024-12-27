@@ -12,6 +12,7 @@ def main():
     
     # 创建标签页
     tabs = st.tabs(['文本生成', '图像生成', '视频生成', '语音生成'])
+    st.write(tabs[0])
     
     with tabs[0]:
         st.header(tabs[0])
