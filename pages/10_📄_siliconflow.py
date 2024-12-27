@@ -3,11 +3,13 @@ import openai
 from dotenv import load_dotenv
 import os
 import datetime
+import requests
 
 # 加载环境变量
 load_dotenv()
 openai.api_key = os.getenv('SILICONFLOW_API_KEY')
 
+base_url = "https://api.siliconflow.cn/v1"
 
 st.title("🎯 SiliconFlow AI Studio")
 
@@ -192,7 +194,7 @@ def display_chat():
     """, unsafe_allow_html=True)
 
 # 创建标签页
-tab1,tab2,tab3,tab4 = st.tabs(['文本生成', '图像生成', '视频生成', '语音生成'])
+tab1,tab2,tab3,tab4,tabModels = st.tabs(['文本生成', '图像生成', '视频生成', '语音生成', '所有模型'])
 
 with tab1:
     display_chat()
@@ -202,4 +204,12 @@ with tab3:
     st.header('视频生成')
 with tab4:
     st.header('语音生成')
+with tabModels:
+    st.header('所有模型')
+    url = base_url + "/models"
+    headers = {"Authorization": "Bearer "+url}
+    response = requests.request("GET", url, headers=headers)
+    data = response.data
+    models = [x["id"] for in data]
+    st.write(models)
 
