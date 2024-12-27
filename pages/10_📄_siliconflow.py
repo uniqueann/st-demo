@@ -209,7 +209,7 @@ with tabModels:
     url = base_url + "/models"
     headers = {"Authorization": "Bearer "+url}
     response = requests.request("GET", url, headers=headers)
-    data = response.data
+    data = response.text
     models = [x["id"] for x in data]
     st.write(models)
 
