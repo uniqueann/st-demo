@@ -33,10 +33,12 @@ st.markdown("""
         flex-direction: column;
     }
     .user-message {
-        background-color: #e3f2fd;
+        background-color: #1e88e5;
+        color: #ffffff;
     }
     .assistant-message {
         background-color: #f5f5f5;
+        color: #000000
     }
     .message-header {
         font-size: 0.8rem;
