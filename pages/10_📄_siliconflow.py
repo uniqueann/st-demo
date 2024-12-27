@@ -11,78 +11,81 @@ openai.api_key = os.getenv('SILICONFLOW_API_KEY')
 st.title("🎯 SiliconFlow AI Studio")
 
 def display_chat():
-    # 对话历史
-    if 'messages' not in st.session_state:
-        st.session_state.messages = []
-
-    # 自定义CSS样式
+    # 自定义CSS
     st.markdown("""
     <style>
+    .stApp {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .main-container {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
     .chat-container {
         display: flex;
         flex-direction: column;
-        height: calc(100vh - 150px);
-        overflow-y: auto;
-        padding-bottom: 80px;
+        gap: 10px;
+        padding-bottom: 100px; /* 为输入框留空间 */
     }
-    .fixed-input {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: white;
+    .message {
+        max-width: 70%;
         padding: 10px;
-        z-index: 1000;
-        border-top: 1px solid #e0e0e0;
-    }
-    .message-container {
-        margin-bottom: 10px;
-        display: flex;
+        border-radius: 10px;
     }
     .user-message {
         background-color: #3B81F6; 
         color: white;
-        max-width: 70%; 
-        padding: 10px; 
-        border-radius: 10px; 
+        align-self: flex-end;
         margin-left: auto;
-        text-align: right;
     }
     .ai-message {
         background-color: #F1F0F0; 
         color: black;
-        max-width: 70%; 
-        padding: 10px; 
-        border-radius: 10px; 
+        align-self: flex-start;
         margin-right: auto;
-        text-align: left;
-        border: 1px solid #E0E0E0;
+    }
+    .input-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background-color: white;
+        z-index: 1000;
+        border-top: 1px solid #e0e0e0;
     }
     </style>
     """, unsafe_allow_html=True)
 
-    # 聊天区域
-    st.markdown('<div class="chat-container" id="chat-container">', unsafe_allow_html=True)
+    # 对话历史
+    if 'messages' not in st.session_state:
+        st.session_state.messages = []
+
+    # 主容器
+    st.markdown('<div class="main-container">', unsafe_allow_html=True)
+    
+    # 聊天内容容器
+    st.markdown('<div class="chat-container">', unsafe_allow_html=True)
     
     # 展示历史消息
     for message in st.session_state.messages:
-        if message['role'] == 'user':
-            st.markdown(f'''
-            <div class="message-container">
-                <div class="user-message">{message['content']}</div>
-            </div>
-            ''', unsafe_allow_html=True)
-        else:
-            st.markdown(f'''
-            <div class="message-container">
-                <div class="ai-message">{message['content']}</div>
-            </div>
-            ''', unsafe_allow_html=True)
+        message_class = 'user-message' if message['role'] == 'user' else 'ai-message'
+        st.markdown(f'''
+        <div class="message {message_class}">
+            {message['content']}
+        </div>
+        ''', unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-    # 固定底部的输入框
-    st.markdown('<div class="fixed-input">', unsafe_allow_html=True)
+    # 固定底部的输入框容器
+    st.markdown('<div class="input-container">', unsafe_allow_html=True)
     
     # 输入框
     if prompt := st.chat_input("输入你的消息", key="chat_input"):
@@ -104,19 +107,19 @@ def display_chat():
     
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # 自动滚动到底部的JavaScript
+    # 自动滚动脚本
     st.markdown("""
     <script>
-    // 自动滚动到底部
+    // 自动滚动到底部的函数
     function scrollToBottom() {
-        var chatContainer = document.getElementById('chat-container');
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        var mainContainer = document.querySelector('.main-container');
+        if (mainContainer) {
+            mainContainer.scrollTop = mainContainer.scrollHeight;
+        }
     }
     
-    // 页面加载后立即滚动
+    // 页面加载后和内容变化时滚动
     window.onload = scrollToBottom;
-    
-    // 如果内容变化也滚动
     setTimeout(scrollToBottom, 100);
     </script>
     """, unsafe_allow_html=True)
