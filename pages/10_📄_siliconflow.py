@@ -96,7 +96,7 @@ def display_chat():
             })
             
             # 重新运行以刷新聊天记录
-            st.experimental_rerun()
+            st.rerun()
 
         st.markdown("</div>", unsafe_allow_html=True)
 
