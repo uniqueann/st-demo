@@ -11,17 +11,13 @@ def main():
     st.title("🎯 SiliconFlow AI Studio")
     
     # 创建标签页
-    tabs = st.tabs(['文本生成', '图像生成', '视频生成', '语音生成'])
-    st.write(tabs[0].name)
+    tab1,tab2,tab3,tab4 = st.tabs(['文本生成', '图像生成', '视频生成', '语音生成'])
+    st.write(tab1)
     
-    with tabs[0]:
-        st.header(tabs[0])
-    with tabs[1]:
-        st.header(tabs[1])
-    with tabs[2]:
-        st.header(tabs[2])
-    with tabs[3]:
-        st.header(tabs[3])
+    with tab1:
+        st.header(tab1)
+    with tab2:
+        st.header(tab2)
 
 if __name__ == "__main__":
     main()
