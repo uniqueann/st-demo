@@ -210,12 +210,7 @@ with tabModels:
     url = base_url + "/models"
     headers = {"Authorization": "Bearer "+openai.api_key}
     response = requests.request("GET", url, headers=headers)
-<<<<<<< HEAD
-    data = response.text.data
-    st.write(data)
-=======
     data = json.loads(response.text).get("data",[])
->>>>>>> ef5a5f902d9e2698644eaa70cb83dd3653d8b2f7
     models = [x["id"] for x in data]
     st.write(models)
 
