@@ -20,7 +20,8 @@ def display_chat():
         st.markdown(f"""
         <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
             <div style="
-                background-color: #DCF8C6; 
+                background-color: #3B81F6; 
+                color: white;
                 max-width: 70%; 
                 padding: 10px; 
                 border-radius: 10px; 
@@ -36,7 +37,8 @@ def display_chat():
         st.markdown(f"""
         <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
             <div style="
-                background-color: #FFFFFF; 
+                background-color: #F1F0F0; 
+                color: black;
                 max-width: 70%; 
                 padding: 10px; 
                 border-radius: 10px; 
@@ -49,34 +51,68 @@ def display_chat():
         </div>
         """, unsafe_allow_html=True)
 
-    # 展示历史消息
-    for message in st.session_state.messages:
-        if message['role'] == 'user':
-            user_message(message['content'])
-        else:
-            ai_message(message['content'])
+    # 创建一个占位容器，用于固定输入框位置
+    placeholder = st.empty()
 
-    # 输入框
-    if prompt := st.chat_input("输入你的消息"):
-        # 添加用户消息
-        st.session_state.messages.append({
-            'role': 'user', 
-            'content': prompt
-        })
-        user_message(prompt)
+    # 聊天区域（滚动）
+    chat_container = st.container()
+    
+    with chat_container:
+        # 展示历史消息
+        for message in st.session_state.messages:
+            if message['role'] == 'user':
+                user_message(message['content'])
+            else:
+                ai_message(message['content'])
 
-        # 模拟AI回复（实际场景替换为真实的AI生成）
-        ai_response = f"你说的是：{prompt}"
-        st.session_state.messages.append({
-            'role': 'ai', 
-            'content': ai_response
-        })
-        ai_message(ai_response)
+    # 固定在底部的输入框
+    with placeholder.container():
+        st.markdown("""
+        <div style="
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background-color: white; 
+            padding: 10px; 
+            z-index: 1000;
+            border-top: 1px solid #e0e0e0;
+        ">
+        """, unsafe_allow_html=True)
+        
+        # 输入框
+        if prompt := st.chat_input("输入你的消息", key="chat_input"):
+            # 添加用户消息
+            st.session_state.messages.append({
+                'role': 'user', 
+                'content': prompt
+            })
+            
+            # 模拟AI回复（实际场景替换为真实的AI生成）
+            ai_response = f"你说的是：{prompt}"
+            st.session_state.messages.append({
+                'role': 'ai', 
+                'content': ai_response
+            })
+            
+            # 重新运行以刷新聊天记录
+            st.experimental_rerun()
+
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # 创建标签页
 tab1,tab2,tab3,tab4 = st.tabs(['文本生成', '图像生成', '视频生成', '语音生成'])
 
 with tab1:
+    # 调整页面布局，为底部输入框腾出空间
+    st.markdown("""
+    <style>
+    .block-container {
+        padding-bottom: 100px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
     display_chat()
 with tab2:
     st.header('图像生成')
