@@ -3,6 +3,8 @@ import openai
 import os
 from dotenv import load_dotenv
 from utils.preprocess_utils import *
+import pd from pandas
+
 
 st.subheader('当前Streamlit版本：'+st.__version__)  # 查看当前版本
 
@@ -27,7 +29,36 @@ if st.button('确定检索模型'):
 
 radio_selection = st.sidebar.radio("Select a radio", ["完成","聊天", "编辑", "图像", "嵌入", "音频"])
 
-
+# 创建侧边栏的天气信息
+with st.sidebar:
+    st.title("天气预报")
+    
+    # 当前温度
+    st.header("龙岗")
+    st.title("22°")
+    st.text("最低 13° 最高 19°")
+    
+    # 创建未来几天天气数据
+    weather_data = {
+        '日期': ['明天', '周日', '周一', '周二', '周三', '周四'],
+        '天气': ['晴', '晴', '晴', '多云', '多云', '多云'],
+        '温度': ['11-19°', '11-18°', '12-21°', '15-23°', '15-24°', '14-24°']
+    }
+    
+    df = pd.DataFrame(weather_data)
+    
+    # 为每一天创建一个天气信息行
+    for index, row in df.iterrows():
+        st.write("---")
+        cols = st.columns([1, 1, 2])
+        with cols[0]:
+            st.write(row['日期'])
+        with cols[1]:
+            # 根据天气显示对应的emoji
+            weather_emoji = "☀️" if row['天气'] == '晴' else "☁️"
+            st.write(weather_emoji)
+        with cols[2]:
+            st.write(row['温度'])
 
 # 定义函数，使用OpenAI API获取回答
 def get_answer(prompt,temp,max_tokens):
