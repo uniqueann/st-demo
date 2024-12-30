@@ -119,5 +119,3 @@ elif radio_selection == "编辑":
     st.write('edit')
 elif radio_selection == "图像":
     img()
-elif radio_selection == "音频":
-    st.write('audio')
