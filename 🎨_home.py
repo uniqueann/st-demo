@@ -29,29 +29,6 @@ if st.button('确定检索模型'):
 
 radio_selection = st.sidebar.radio("Select a radio", ["完成","聊天", "编辑", "图像", "嵌入", "音频"])
 
-# 创建侧边栏的天气信息
-with st.sidebar:
-    st.title("天气预报")
-    
-    # 当前温度
-    st.title("龙岗")
-    st.title("22°")
-    st.text("最低 13° 最高 19°")
-    
-    # 创建未来几天天气数据
-    weather_data = {
-        '日期': ['明天', '周日', '周一', '周二', '周三', '周四'],
-        '天气': ['晴', '晴', '晴', '多云', '多云', '多云'],
-        '温度': ['11-19°', '11-18°', '12-21°', '15-23°', '15-24°', '14-24°']
-    }
-    
-    df = pd.DataFrame(weather_data)
-    
-    cols = st.columns(6)
-    for i in range(6):
-        with cols[i]:
-            weather_emoji = "☀️" if df['天气'][i] == '晴' else "☁️"
-            st.metric(df['日期'][i],df['温度'][i], weather_emoji)
     
 
 # 定义函数，使用OpenAI API获取回答
