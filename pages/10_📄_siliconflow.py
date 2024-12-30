@@ -217,7 +217,7 @@ tab1,tab2,tab3,tab4,tabModels = st.tabs(['文本生成', '图像生成', '视频
 with tab1:
     display_chat()
 with tab2:
-    st.header('图像生成')
+    display_img()
 with tab3:
     st.header('视频生成')
 with tab4:
