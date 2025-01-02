@@ -224,8 +224,9 @@ def display_img():
                     }
                     data = {
                         "prompt": new_message,
+                        "model":"Pro/black-forest-labs/FLUX.1-schnell",
                         "n": 1,  # 生成1张图片
-                        "size": "1024x1024"  # 图片尺寸
+                        "image_size": "1024x1024"  # 图片尺寸
                     }
                     response = requests.post(url, headers=headers, json=data)
                     response.raise_for_status()
