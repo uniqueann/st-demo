@@ -213,11 +213,31 @@ def display_img():
         """)
     new_message = st.text_area("请输入生成图像的提示词：")
     if st.button("生成图片"):
-            if new_message:
-                with st.spinner('Please wait...'):
-                    st.success("生成成功")
-            else:
-                st.warning("请输入生成图像的提示词")
+        if new_message:
+            with st.spinner('正在生成图像...'):
+                try:
+                    # 调用SiliconFlow的图像生成API
+                    url = base_url + "/images/generations"
+                    headers = {
+                        "Authorization": "Bearer " + openai.api_key,
+                        "Content-Type": "application/json"
+                    }
+                    data = {
+                        "prompt": new_message,
+                        "n": 1,  # 生成1张图片
+                        "size": "1024x1024"  # 图片尺寸
+                    }
+                    response = requests.post(url, headers=headers, json=data)
+                    response.raise_for_status()
+                    
+                    # 获取生成的图片URL并显示
+                    image_url = response.json()["data"][0]["url"]
+                    st.image(image_url, caption="生成的图像", use_column_width=True)
+                    st.success("图像生成成功！")
+                except requests.exceptions.RequestException as e:
+                    st.error(f"图像生成失败: {str(e)}")
+        else:
+            st.warning("请输入生成图像的提示词")
 
 
 # 创建标签页
@@ -239,4 +259,3 @@ with tabModels:
     data = json.loads(response.text).get("data",[])
     models = [x["id"] for x in data]
     st.write(models)
-
