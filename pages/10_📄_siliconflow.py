@@ -252,6 +252,55 @@ with tab3:
     st.header('视频生成')
 with tab4:
     st.header('语音生成')
+    
+    # 语音生成参数设置
+    col1, col2 = st.columns(2)
+    with col1:
+        voice = st.selectbox("选择语音", ["male", "female", "child"])
+        response_format = st.selectbox("选择输出格式", ["mp3", "wav", "ogg"])
+        sample_rate = st.selectbox("选择采样率", ["22050", "44100", "48000"])
+    with col2:
+        stream = st.selectbox("选择流式传输", ["true", "false"])
+        speed = st.number_input("语速 (0.5-2.0)", min_value=0.5, max_value=2.0, value=1.0, step=0.1)
+        gain = st.number_input("音量增益 (0.1-10.0)", min_value=0.1, max_value=10.0, value=1.0, step=0.1)
+    
+    text_input = st.text_area("输入要转换为语音的文本")
+    
+    if st.button("生成语音"):
+        if text_input:
+            with st.spinner('正在生成语音...'):
+                try:
+                    url = base_url + "/audio/speech"
+                    headers = {
+                        "Authorization": "Bearer " + openai.api_key,
+                        "Content-Type": "application/json"
+                    }
+                    data = {
+                        "model": "fishaudio/fish-speech-1.5",
+                        "input": text_input,
+                        "voice": voice,
+                        "response_format": response_format,
+                        "sample_rate": int(sample_rate),
+                        "stream": stream.lower() == "true",
+                        "speed": speed,
+                        "gain": gain
+                    }
+                    response = requests.post(url, headers=headers, json=data)
+                    response.raise_for_status()
+                    
+                    # 处理响应
+                    if response_format == "mp3":
+                        st.audio(response.content, format="audio/mp3")
+                    elif response_format == "wav":
+                        st.audio(response.content, format="audio/wav")
+                    elif response_format == "ogg":
+                        st.audio(response.content, format="audio/ogg")
+                    
+                    st.success("语音生成成功！")
+                except requests.exceptions.RequestException as e:
+                    st.error(f"语音生成失败: {str(e)}")
+        else:
+            st.warning("请输入要转换为语音的文本")
 with tabModels:
     st.header('所有模型')
     url = base_url + "/models"
