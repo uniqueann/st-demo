@@ -4,7 +4,7 @@ import chardet
 from st_aggrid import GridOptionsBuilder,AgGrid
 
 
-uploaded_file = st.sidebar.file_uploader('请上传 CSV 文件',type=['csv'])
+uploaded_file = st.file_uploader('请上传 CSV 文件',type=['csv'])
 
 if uploaded_file is None:
     st.stop()

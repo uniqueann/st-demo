@@ -115,7 +115,5 @@ if radio_selection == "完成":
     ans()
 elif radio_selection == "聊天":
     chat()
-elif radio_selection == "编辑":
-    st.write('edit')
 elif radio_selection == "图像":
     img()

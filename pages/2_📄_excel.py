@@ -3,7 +3,7 @@ import pandas as pd
 from st_aggrid import GridOptionsBuilder,AgGrid
 
 
-uploaded_file = st.sidebar.file_uploader('请上传 XLSX 文件',type=['xlsx'])
+uploaded_file = st.file_uploader('请上传 XLSX 文件',type=['xlsx'])
 
 if uploaded_file is None:
     st.stop()

@@ -8,7 +8,7 @@ import json
 
 # 加载环境变量
 load_dotenv()
-openai.api_key = os.getenv('SILICONFLOW_API_KEY')
+api_key = os.getenv('SILICONFLOW_API_KEY')
 
 base_url = "https://api.siliconflow.cn/v1"
 
@@ -74,7 +74,7 @@ def display_img():
                     # 调用SiliconFlow的图像生成API
                     url = base_url + "/images/generations"
                     headers = {
-                        "Authorization": "Bearer " + openai.api_key,
+                        "Authorization": "Bearer " + api_key,
                         "Content-Type": "application/json"
                     }
                     data = {
@@ -127,7 +127,7 @@ with tab4:
                 try:
                     url = base_url + "/audio/speech"
                     headers = {
-                        "Authorization": "Bearer " + openai.api_key,
+                        "Authorization": "Bearer " + api_key,
                         "Content-Type": "application/json"
                     }
                     data = {
@@ -159,7 +159,7 @@ with tab4:
 with tabModels:
     st.header('所有模型')
     url = base_url + "/models"
-    headers = {"Authorization": "Bearer "+openai.api_key}
+    headers = {"Authorization": "Bearer "+api_key}
     response = requests.request("GET", url, headers=headers)
     data = json.loads(response.text).get("data",[])
     models = [x["id"] for x in data]
