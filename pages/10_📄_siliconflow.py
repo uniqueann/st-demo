@@ -12,7 +12,7 @@ api_key = os.getenv('SILICONFLOW_API_KEY')
 
 base_url = "https://api.siliconflow.cn/v1"
 
-st.title("🎯 SiliconFlow AI Studio")
+st.title("🎯 硅基流动")
 
 
 def display_chat():
