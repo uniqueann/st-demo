@@ -1,0 +1,26 @@
+[
+    {
+        "tag": "github",
+        "name": "awesome",
+        "url": "https://github.com/sindresorhus/awesome",
+        "desc": "各种有趣话题的精彩列表"
+    },
+    {
+        "tag": "github",
+        "name": "system-design-primer",
+        "url": "https://github.com/donnemartin/system-design-primer",
+        "desc": "整理、收集系统设计方面的资源"
+    },
+    {
+        "tag": "AI",
+        "name": "deepseekv3",
+        "url": "https://www.deepseek.com",
+        "desc": "deepseek. 全新体验，无限可能"
+    },
+    {
+        "tag": "AI",
+        "name": "硅基流动",
+        "url": "https://siliconflow.cn",
+        "desc": "硅基流动"
+    }
+]
