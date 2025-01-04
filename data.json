@@ -18,6 +18,12 @@
         "desc": "前后端开发框架、Chrome 插件开发、原型设计、支付集成、网站管理、字体/图标资源、信息渠道等内容"
     },
     {
+        "tag": "github",
+        "name": "Awesome Claude Prompts",
+        "url": "https://bgithub.xyz/langgptai/awesome-claude-prompts",
+        "desc":"不同应用场景的提示词"
+    },
+    {
         "tag": "AI",
         "name": "deepseekv3",
         "url": "https://www.deepseek.com",
