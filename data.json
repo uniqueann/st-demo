@@ -2,14 +2,20 @@
     {
         "tag": "github",
         "name": "awesome",
-        "url": "https://github.com/sindresorhus/awesome",
+        "url": "https://bgithub.xyz/sindresorhus/awesome",
         "desc": "各种有趣话题的精彩列表"
     },
     {
         "tag": "github",
         "name": "system-design-primer",
-        "url": "https://github.com/donnemartin/system-design-primer",
+        "url": "https://bgithub.xyz/donnemartin/system-design-primer",
         "desc": "整理、收集系统设计方面的资源"
+    },
+    {
+        "tag": "github",
+        "name": "Awesome-independent-tools",
+        "url": "https://bgithub.xyz/yaolifeng0629",
+        "desc": "前后端开发框架、Chrome 插件开发、原型设计、支付集成、网站管理、字体/图标资源、信息渠道等内容"
     },
     {
         "tag": "AI",
