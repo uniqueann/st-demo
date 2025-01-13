@@ -2,26 +2,68 @@
     {
         "tag": "github",
         "name": "awesome",
-        "url": "https://bgithub.xyz/sindresorhus/awesome",
+        "url": "https://github.com/sindresorhus/awesome",
         "desc": "各种有趣话题的精彩列表"
     },
     {
         "tag": "github",
         "name": "system-design-primer",
-        "url": "https://bgithub.xyz/donnemartin/system-design-primer",
+        "url": "https://github.com/donnemartin/system-design-primer",
         "desc": "整理、收集系统设计方面的资源"
     },
     {
         "tag": "github",
         "name": "Awesome-independent-tools",
-        "url": "https://bgithub.xyz/yaolifeng0629",
+        "url": "https://github.com/yaolifeng0629",
         "desc": "前后端开发框架、Chrome 插件开发、原型设计、支付集成、网站管理、字体/图标资源、信息渠道等内容"
     },
     {
         "tag": "github",
         "name": "Awesome Claude Prompts",
-        "url": "https://bgithub.xyz/langgptai/awesome-claude-prompts",
+        "url": "https://github.com/langgptai/awesome-claude-prompts",
         "desc":"不同应用场景的提示词"
+    },
+    {
+        "tag": "github",
+        "name": "Home Assistant",
+        "url": "https://github.com/home-assistant/core",
+        "desc":"Home Assistant"
+    },
+    {
+        "tag": "github",
+        "name": "Home Assistant XiaoMi",
+        "url": "https://github.com/XiaoMi/ha_xiaomi_home",
+        "desc":"Home Assistant 米家集成"
+    },
+    {
+        "tag": "github",
+        "name": "screenshot-to-code",
+        "url": "https://github.com/abi/screenshot-to-code",
+        "desc":"使用 AI 将屏幕截图、模型和 Figma 设计转换为干净、实用的代码"
+    },
+    {
+        "tag": "github",
+        "name": "developer-roadmap",
+        "url": "https://github.com/kamranahmedse/developer-roadmap",
+        "desc":"开发者路线"
+    },
+    {
+        "tag": "github",
+        "name": "public-apis",
+        "url": "https://github.com/public-apis/public-apis",
+        "desc":"公开api列表"
+    },
+    {
+        "tag": "github",
+        "name": "30-seconds-of-code",
+        "url": "https://github.com/Chalarangelo/30-seconds-of-code",
+        "desc":"简短、实用代码片段"
+    },
+    {
+        "tag": "github",
+        "name": "algorithm",
+        "url": "https://github.com/Chalarangelo/30-seconds-of-code",
+        "desc":"简短、实用代码片段"
     },
     {
         "tag": "AI",
