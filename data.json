@@ -60,12 +60,6 @@
         "desc":"简短、实用代码片段"
     },
     {
-        "tag": "github",
-        "name": "algorithm",
-        "url": "https://github.com/Chalarangelo/30-seconds-of-code",
-        "desc":"简短、实用代码片段"
-    },
-    {
         "tag": "AI",
         "name": "deepseekv3",
         "url": "https://www.deepseek.com",
