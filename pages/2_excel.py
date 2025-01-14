@@ -15,7 +15,7 @@ def load_data(file):
 dfs = load_data(uploaded_file)
 
 names = list(dfs.keys())
-sheet_selects = st.sidebar.multiselect('工作表',names)
+sheet_selects = st.multiselect('工作表',names)
 
 if len(sheet_selects)==0:
     st.stop()
