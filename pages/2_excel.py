@@ -15,10 +15,11 @@ def load_data(file):
 dfs = load_data(uploaded_file)
 
 names = list(dfs.keys())
-sheet_selects = st.multiselect('工作表',names)
+with st.container():
+    sheet_selects = st.multiselect('工作表',names)
 
-if len(sheet_selects)==0:
-    st.stop()
+    if len(sheet_selects)==0:
+        st.stop()
 
 tabs = st.tabs(sheet_selects)
 
