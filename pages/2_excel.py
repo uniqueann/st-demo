@@ -15,7 +15,7 @@ def load_data(file):
     return pd.read_excel(uploaded_file)
 
 df = load_data(uploaded_file)
-st.data_editor(df)
+st.data_editor(df,height=500)
 
 dfs = load_data(uploaded_file)
 
