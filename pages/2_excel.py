@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from st_aggrid import GridOptionsBuilder,AgGrid
 
-st.write('仅读取第一个sheet表')
+st.subheader('仅读取第一个sheet表',divider=True)
 uploaded_file = st.file_uploader('请上传 XLSX 文件',type=['xlsx'])
 
 if uploaded_file is None:
