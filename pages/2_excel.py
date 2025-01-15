@@ -24,7 +24,7 @@ with st.container():
 tabs = st.tabs(sheet_selects)
 
 with tabs[0]:
-    st.dataframe(dfs[0])
+    st.dataframe(dfs[sheet_selects[0]])
 
 # for tab,name in zip(tabs,sheet_selects):
 #     with tab:
