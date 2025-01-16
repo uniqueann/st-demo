@@ -25,7 +25,7 @@ if display_columns :
         st.markdown("this is setting markdown")
         for col in display_columns:
             pop_label = col
-            pop = st.popover(col)
+            pop = st.popover(pop_label)
             clear = pop.checkbox("清洗数据",False,key=f"{col}_1")
             if clear:
                 pop_label = f"{col}: 清洗数据"
