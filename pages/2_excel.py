@@ -22,7 +22,7 @@ with st.expander("列名集合", expanded=True, icon=":material/view_column:"):
 
 if display_columns :
     # st.markdown(f"{display_columns }")
-    with st.expander("设置-Setting"):
+    with st.expander("设置-Setting", expanded=False, icon=":material/settings:"):
         st.markdown("this is setting markdown")
     display_df = df[display_columns]
     st.data_editor(display_df)
