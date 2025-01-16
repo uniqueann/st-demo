@@ -25,8 +25,8 @@ if display_columns :
         st.markdown("this is setting markdown")
         for col in display_columns:
             pop = st.popover(col)
-            pop.checkbox("清洗数据", False)
-            pop.checkbox("展示为图片", False)
+            pop.checkbox("清洗数据",False,key=f"{col}_1")
+            pop.checkbox("展示为图片", False,key=f"{col}_2")
     display_df = df[display_columns]
     st.data_editor(display_df)
 else:
