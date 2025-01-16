@@ -21,6 +21,6 @@ selected_column_names = st.pills("列名",column_names, selection_mode='multi',d
 
 # st.data_editor(df)
 if selected_column_names:
-    st.data_editor(df,column_names=selected_column_names)
+    st.data_editor(df,columns=selected_column_names)
 else:
     st.warning('请选择列名')
