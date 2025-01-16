@@ -17,8 +17,10 @@ def load_data(file):
 df = load_data(uploaded_file)
 
 column_names = df.columns.tolist()
-st.pills("列名",column_names, selection_mode='multi',default=column_names)
+selected_column_names = st.pills("列名",column_names, selection_mode='multi',default=column_names)
 
 # st.data_editor(df)
+if selected_column_names is None:
+    st.warning('请至少选择一列')
 
-
+st.data_editor(df,column_names=selected_column_names)
