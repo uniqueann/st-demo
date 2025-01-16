@@ -4,7 +4,7 @@ from st_aggrid import GridOptionsBuilder,AgGrid
 
 st.set_page_config(layout="wide")
 
-st.subheader('仅读取第一个sheet表',divider=True)
+st.subheader(':blue[material/upload_file]: 仅读取第一个sheet表',divider=True)
 uploaded_file = st.file_uploader('请上传 XLSX 文件',type=['xlsx'])
 
 if uploaded_file is None:
