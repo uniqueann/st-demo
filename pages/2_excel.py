@@ -17,11 +17,18 @@ def load_data(file):
 df = load_data(uploaded_file)
 
 column_names = df.columns.tolist()
-selected_column_names = st.pills("列名",column_names, selection_mode='multi',default=column_names)
+display_columns  = st.pills("列名",column_names, selection_mode='multi',default=column_names)
 
 # st.data_editor(df)
-if selected_column_names:
-    st.markdown(f"{selected_column_names}")
+if display_columns :
+    st.markdown(f"{display_columns }")
+    edited_df = st.data_editor(
+        df,
+        columns=display_columns,  # 指定要显示的列名
+        key="1",  # 可选，用于在多次调用之间保持状态
+        reset_index=False  # 可选，是否重置索引
+    )
+    st.write(edited_df)
     # st.data_editor(df,columns=selected_column_names)
 else:
     st.warning('请选择列名')
