@@ -17,6 +17,7 @@ def load_data(file):
 df = load_data(uploaded_file)
 
 column_names = df.columns.tolist()
+st.pills("列名",column_names, selection_mode='multi')
 st.write(column_names)
 
 # st.data_editor(df)
