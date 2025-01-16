@@ -19,6 +19,6 @@ df = load_data(uploaded_file)
 column_names = df.columns.tolist()
 st.write(column_names)
 
-st.data_editor(df)
+# st.data_editor(df)
 
 
