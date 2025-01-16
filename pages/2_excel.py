@@ -23,6 +23,9 @@ if display_columns :
     # st.markdown(f"{display_columns }")
     with st.expander("设置-Setting", expanded=False, icon=":material/settings:"):
         st.markdown("this is setting markdown")
+        for col in display_columns:
+            with st.popover(col):
+                st.markdown("col")
     display_df = df[display_columns]
     st.data_editor(display_df)
 else:
