@@ -17,7 +17,8 @@ def load_data(file):
 df = load_data(uploaded_file)
 
 column_names = df.columns.tolist()
-display_columns  = st.pills("列名",column_names, selection_mode='multi',default=column_names)
+with st.expander("列名集合", expanded=True, icon=":material/view_column:"):
+    display_columns  = st.pills("列名",column_names, selection_mode='multi',default=column_names,label_visibility='hidden')
 
 if display_columns :
     # st.markdown(f"{display_columns }")
