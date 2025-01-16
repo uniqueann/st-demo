@@ -20,7 +20,9 @@ column_names = df.columns.tolist()
 display_columns  = st.pills("列名",column_names, selection_mode='multi',default=column_names)
 
 if display_columns :
-    st.markdown(f"{display_columns }")
+    # st.markdown(f"{display_columns }")
+    with st.expander("设置-Setting"):
+        st.markdown("this is setting markdown")
     display_df = df[display_columns]
     st.data_editor(display_df)
 else:
