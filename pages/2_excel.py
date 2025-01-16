@@ -24,9 +24,9 @@ if display_columns :
     with st.expander("设置-Setting", expanded=False, icon=":material/settings:"):
         st.markdown("this is setting markdown")
         for col in display_columns:
-            with st.popover(col):
-                st.checkbox("清洗数据", False)
-                st.checkbox("展示为图片", False)
+            pop = st.popover(col):
+            pop.checkbox("清洗数据", False)
+            pop.checkbox("展示为图片", False)
     display_df = df[display_columns]
     st.data_editor(display_df)
 else:
