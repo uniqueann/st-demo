@@ -23,4 +23,4 @@ selected_column_names = st.pills("列名",column_names, selection_mode='multi',d
 if selected_column_names is None:
     st.warning('请至少选择一列')
 
-st.data_editor(df,column_names=selected_column_names)
+# st.data_editor(df,column_names=selected_column_names)
