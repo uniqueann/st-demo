@@ -4,8 +4,8 @@ from st_aggrid import GridOptionsBuilder,AgGrid
 
 st.set_page_config(layout="wide")
 
-st.subheader('blue:material/cloud_upload: 仅读取第一个sheet表',divider=True)
-uploaded_file = st.file_uploader('请上传 XLSX 文件',type=['xlsx'])
+st.subheader(':material/cloud_upload: 仅读取第一个sheet表',divider=True)
+uploaded_file = st.file_uploader('请上传 XLSX 文件',type=['xlsx'],label_visibility=False)
 
 if uploaded_file is None:
     st.stop()
