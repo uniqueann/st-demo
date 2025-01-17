@@ -29,9 +29,9 @@ if display_columns :
                 st.write(col)
             with col2:
                 st.checkbox("清洗数据", key=f"{col}_1")
-            with col2:
+            with col3:
                 st.checkbox("展示为图片", key=f"{col}_2")
-                
+
     display_df = df[display_columns]
     st.data_editor(display_df)
 else:
