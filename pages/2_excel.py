@@ -24,7 +24,7 @@ if display_columns :
     with st.expander("设置-Setting", expanded=False, icon=":material/settings:"):
         st.markdown("this is setting markdown")
         for col in display_columns:
-            col1,col2,col3 = st.columns(3)
+            col1,col2,col3 = st.columns(3, vertical_alignment="center", border=True)
             with col1:
                 st.write(col)
             with col2:
