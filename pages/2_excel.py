@@ -26,7 +26,8 @@ if display_columns :
         for col in display_columns:
             col1,col2,col3 = st.columns(3, vertical_alignment="center", border=True)
             with col1:
-                st.html(f"<b>{col}</b>")
+                # st.html(f"<b>{col}</b>")
+                st.caption(col)
             with col2:
                 st.checkbox("清洗数据", key=f"{col}_1")
             with col3:
