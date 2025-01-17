@@ -24,12 +24,14 @@ if display_columns :
     with st.expander("设置-Setting", expanded=False, icon=":material/settings:"):
         st.markdown("this is setting markdown")
         for col in display_columns:
-            pop_label = col
-            pop = st.popover(pop_label)
-            clear = pop.checkbox("清洗数据",False,key=f"{col}_1")
-            if clear:
-                pop_label = f"{col}: 清洗数据"
-            pop.checkbox("展示为图片", False,key=f"{col}_2")
+            col1,col2,col3 = st.columns(3)
+            with col1:
+                st.write(col)
+            with col2:
+                st.checkbox("清洗数据", key=f"{col}_1")
+            with col2:
+                st.checkbox("展示为图片", key=f"{col}_2")
+                
     display_df = df[display_columns]
     st.data_editor(display_df)
 else:
