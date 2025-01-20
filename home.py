@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import json
+from utils.db_utils import SQLiteDB
 
 st.set_page_config(layout="wide")
 
@@ -32,3 +33,8 @@ for tag, group in df.groupby('tag'):
         column_order=["name", "url", "desc"],
         width=1800
     )
+
+
+with SQLiteDB('st-demo.db') as db:
+    users = db.fetch_all('SELECT * from user')
+    st.write(users)
