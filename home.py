@@ -37,4 +37,5 @@ for tag, group in df.groupby('tag'):
 
 with SQLiteDB('st-demo.db') as db:
     users = db.fetch_all('SELECT * from user')
-    st.write(users)
+    # st.write(users)
+    st.dataframe(users)
